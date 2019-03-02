@@ -1,0 +1,1 @@
+![image](https://github.com/religiones/weather-application/blob/master/weatherApp.gif?raw=true)
