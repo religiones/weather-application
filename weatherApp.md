@@ -1,1 +1,1 @@
-![image](https://github.com/religiones/weather-application/raw/master/weatherApp.gif)
+![image](https://raw.githubusercontent.com/religiones/weather-application/master/weatherApp.gif)
