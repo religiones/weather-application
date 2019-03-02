@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
     private class DownloadUpdate extends AsyncTask<String, Void, String> {
 
-
         @Override
         protected String doInBackground(String... strings) {
             String stringUrl = "http://t.weather.sojson.com/api/weather/city/101040100";
@@ -107,14 +106,14 @@ public class MainActivity extends AppCompatActivity {
                 temp[i] = temp_forecast;
             }
             //adapter all data
-            ((TextView) findViewById(R.id.tv_location)).setText(city);
+            ((TextView) findViewById(R.id.tv_location)).setText("Chongqing");
             ((TextView) findViewById(R.id.tv_date)).setText(day+"/"+month+"/"+year);
             ((TextView) findViewById(R.id.temperature_of_the_day)).setText(temperature);
-            ((TextView) findViewById(R.id.tv_week1)).setText(week[0]);
-            ((TextView) findViewById(R.id.tv_week2)).setText(week[1]);
-            ((TextView) findViewById(R.id.tv_week3)).setText(week[2]);
-            ((TextView) findViewById(R.id.tv_week4)).setText(week[3]);
-            ((TextView) findViewById(R.id.tv_week5)).setText(week[4]);
+            ((TextView) findViewById(R.id.tv_week1)).setText(changeLanguage(week[0],true));
+            ((TextView) findViewById(R.id.tv_week2)).setText(changeLanguage(week[1],false));
+            ((TextView) findViewById(R.id.tv_week3)).setText(changeLanguage(week[2],false));
+            ((TextView) findViewById(R.id.tv_week4)).setText(changeLanguage(week[3],false));
+            ((TextView) findViewById(R.id.tv_week5)).setText(changeLanguage(week[4],false));
 
             ((ImageView) findViewById(R.id.img_weather_condition1)).setImageDrawable(updateDrawable(temp[0],true));
             ((ImageView) findViewById(R.id.img_weather_condition2)).setImageDrawable(updateDrawable(temp[1],false));
@@ -158,6 +157,46 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             return drawable;
+        }
+
+        protected String changeLanguage(String lang, boolean isToday){
+            if (isToday == false){
+                switch (lang){
+                    case "星期一":
+                        return "MON";
+                    case "星期二":
+                        return "TUE";
+                    case "星期三":
+                        return "WED";
+                    case "星期四":
+                        return "THU";
+                    case "星期五":
+                        return "FRI";
+                    case "星期六":
+                        return "SAT";
+                    case "星期日":
+                        return "SUN";
+                }
+            }
+            else {
+                switch (lang){
+                    case "星期一":
+                        return "MONDAY";
+                    case "星期二":
+                        return "TUESDAY";
+                    case "星期三":
+                        return "WEDNESDAY";
+                    case "星期四":
+                        return "THURSDAY";
+                    case "星期五":
+                        return "FRIDAY";
+                    case "星期六":
+                        return "SATURDAY";
+                    case "星期日":
+                        return "SUNDAY";
+                }
+            }
+            return null;
         }
     }
 }
